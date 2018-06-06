@@ -17,8 +17,7 @@ public class Cidade {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 
-	@Column(nullable = false, length = 50, name = "nome") // nullable Não permite campo vazio
-															
+	@Column(nullable = false, length = 50, name = "nome") // nullable Não permite campo vazio															
 	private String nome;
 
 	@Column(name = "uf", nullable = false, length = 2)

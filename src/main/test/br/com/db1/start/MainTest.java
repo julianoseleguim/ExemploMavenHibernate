@@ -21,16 +21,15 @@ public class MainTest {
 		EntityManager manager = factory.createEntityManager();
 
 		Cidade cidade = new Cidade();
-		cidade.setNome("Maringa");
+		cidade.setNome("Curitiba");
 		cidade.setUf(Uf.PR);
 		manager.getTransaction().begin();
 		manager.persist(cidade);
 		manager.getTransaction().commit();
 
 		factory.close();
-
 	}
-
+	
 	@Test
 	public void deleteTest() {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("db1start");
@@ -42,7 +41,6 @@ public class MainTest {
 		manager.getTransaction().commit();
 
 		factory.close();
-
 	}
 
 	@Test
