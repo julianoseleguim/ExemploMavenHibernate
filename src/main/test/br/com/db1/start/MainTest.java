@@ -21,7 +21,7 @@ public class MainTest {
 		EntityManager manager = factory.createEntityManager();
 
 		Cidade cidade = new Cidade();
-		cidade.setNome("Curitiba");
+		cidade.setNome("Maringá");
 		cidade.setUf(Uf.PR);
 		manager.getTransaction().begin();
 		manager.persist(cidade);

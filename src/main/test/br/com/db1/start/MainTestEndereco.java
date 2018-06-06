@@ -12,6 +12,7 @@ import org.junit.Test;
 
 import br.com.db1.start.classe.Cidade;
 import br.com.db1.start.classe.Endereco;
+import br.com.db1.start.tipo.TipoEndereco;
 import br.com.db1.start.tipo.TipoLogradouro;
 import br.com.db1.start.tipo.Uf;
 
@@ -19,12 +20,12 @@ public class MainTestEndereco {
 
 	@Test
 	public void metodoTest() {
-		/*EntityManagerFactory factory = Persistence.createEntityManagerFactory("db1start");
-		EntityManager manager = factory.createEntityManager()*/;
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("db1start");
+		EntityManager manager = factory.createEntityManager();
 		
 		Cidade cidade = new Cidade();		
-		cidade.setId(13);
-		cidade.setNome("Curitiba");
+		cidade.setId(29);
+		cidade.setNome("Maringá");
 		cidade.setUf(Uf.PR);
 		
 		Endereco endereco = new Endereco();
@@ -33,16 +34,17 @@ public class MainTestEndereco {
 		endereco.setLogradouro("COLOMBO");
 		endereco.setNumero("1279");
 		endereco.setComplemento("CASA");
+		endereco.setTipoEndereco(TipoEndereco.COMERCIAL);
 		endereco.setCep("00000-000");
 				
-		EntityManager manager = abreConexao();
+		//EntityManager manager = abreConexao();
 				
 		manager.getTransaction().begin();
 		manager.persist(endereco);
 		manager.getTransaction().commit();
 
-		//factory.close();		
-		fechaConexao(manager);
+		factory.close();		
+		//fechaConexao(manager);
 	}
 
 	public EntityManager abreConexao(){
