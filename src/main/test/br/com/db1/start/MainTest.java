@@ -12,7 +12,6 @@ import org.junit.Test;
 import br.com.db1.start.classe.Cidade;
 import br.com.db1.start.tipo.Uf;
 
-
 public class MainTest {
 
 	@Test
@@ -63,7 +62,7 @@ public class MainTest {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("db1start");
 		EntityManager manager = factory.createEntityManager();
 
-		Query query = manager.createQuery("Select c from Cidade c");
+		Query query = manager.createQuery("Select c from cidade c");
 		List<Cidade> cidades = query.getResultList();
 
 		factory.close();

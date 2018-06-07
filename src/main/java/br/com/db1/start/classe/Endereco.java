@@ -9,7 +9,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import br.com.db1.start.tipo.TipoEndereco;
@@ -19,38 +18,49 @@ import br.com.db1.start.tipo.TipoLogradouro;
 public class Endereco {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL) 
-	//@JoinColumn(name = "cidade_id", nullable = false)
 	private Cidade cidade;
 	
-	@Column(name = "tipoLogradouro", nullable = false)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL) 
+	private Pessoa pessoa;
+	
+	@Column(nullable = false, length = 12)
 	@Enumerated(EnumType.STRING)
 	private TipoLogradouro tipoLogradouro;
 	
-	@Column(name = "logradouro")
+	@Column(name = "logradouro", length = 120)
 	private String logradouro;
 	
-	@Column(name = "numero")
+	@Column(name = "numero", length = 6)
 	private String numero;
 	
-	@Column(name = "complemento")
+	@Column(name = "complemento", length = 15)
 	private String complemento;
 	
-	@Column(name = "cep")
+	@Column(name = "cep", length = 10)
 	private String cep;
 	
-	@Column(name = "tipoEndereco")
+	@Column(length = 15)
 	private TipoEndereco tipoEndereco;
 		
+	
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
+	}
+	
 	public Cidade getCidade() {
 		return cidade;
 	}

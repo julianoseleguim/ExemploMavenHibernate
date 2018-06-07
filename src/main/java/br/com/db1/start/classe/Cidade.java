@@ -10,14 +10,14 @@ import javax.persistence.Id;
 
 import br.com.db1.start.tipo.Uf;
 
-@Entity(name = "cidade") // comando para criar tabela no banco
+@Entity(name = "cidade") 
 public class Cidade {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 
-	@Column(nullable = false, length = 50, name = "nome") // nullable Não permite campo vazio															
+	@Column(nullable = false, length = 50, name = "nome") 															
 	private String nome;
 
 	@Column(name = "uf", nullable = false, length = 2)
@@ -47,5 +47,4 @@ public class Cidade {
 	public void setUf(Uf uf) {
 		this.uf = uf;
 	}
-
 }
