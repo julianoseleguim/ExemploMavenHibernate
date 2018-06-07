@@ -39,28 +39,14 @@ public class MainTestEndereco {
 		endereco.setComplemento("CASA");
 		endereco.setTipoEndereco(TipoEndereco.COMERCIAL);
 		endereco.setCep("00000-000");
-				
-		//EntityManager manager = abreConexao();
-				
+	
 		manager.getTransaction().begin();
 		manager.persist(endereco);
 		manager.getTransaction().commit();
 
 		factory.close();		
-		//fechaConexao(manager);
 	}
 
-	public EntityManager abreConexao(){
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("db1start");
-		EntityManager manager = factory.createEntityManager();
-		return manager;
-		
-	}
-	
-	public void fechaConexao(EntityManager factory){
-		factory.close();
-	}
-	
 	@Test
 	public void deleteTest() {
 	/*	EntityManagerFactory factory = Persistence.createEntityManagerFactory("db1start");
@@ -111,7 +97,6 @@ public class MainTestEndereco {
 		List<Endereco> enderecos = query.getResultList();
 
 		factory.close();*/
-
 	}
 
 }

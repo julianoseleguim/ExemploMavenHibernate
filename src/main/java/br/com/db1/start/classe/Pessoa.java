@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 import br.com.db1.start.tipo.TipoDocumento;
 
@@ -31,7 +32,8 @@ public class Pessoa {
 	@Column(nullable = false, length = 20)
 	private String documento;
 	
-	@OneToMany(fetch=FetchType.LAZY, mappedBy = "pessoa")
+	//@OneToMany(fetch=FetchType.LAZY, mappedBy = "pessoa")
+	@Transient
 	private List<Endereco> endereco;
 	
 	public Integer getId() {

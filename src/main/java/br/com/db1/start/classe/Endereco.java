@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 import br.com.db1.start.tipo.TipoEndereco;
 import br.com.db1.start.tipo.TipoLogradouro;
@@ -18,13 +19,13 @@ import br.com.db1.start.tipo.TipoLogradouro;
 public class Endereco {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL) 
+	@ManyToOne(fetch = FetchType.LAZY) 
 	private Cidade cidade;
 	
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL) 
+	@ManyToOne(fetch = FetchType.LAZY) 
 	private Pessoa pessoa;
 	
 	@Column(nullable = false, length = 12)
